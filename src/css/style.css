@@ -1,0 +1,326 @@
+html{
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background: url(../img/backgrounds/main.jpg) no-repeat bottom center scroll;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    color: white;
+    background-size: cover;
+}
+
+header {
+    padding: 15px 0;
+    width: 80vw;
+    text-align: center;
+    margin: 10px auto 0;
+    border: var(--border);
+    border-radius: 20px;
+    font-size: 3.5rem;
+    background-color: var(--background-h-f);
+}
+
+main {
+    width: 85vw;
+    height: 60vh;
+    padding: 25px;
+    margin: 35px auto 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    border: var(--border);
+    border-radius: 10px;
+    background-color: var(--background-h-f);
+    overflow-y: scroll;
+}
+
+main::-webkit-scrollbar {
+    width: 10px;
+    height: 0px;
+}
+
+main::-webkit-scrollbar-thumb {
+    background-color: var(--scroll);
+    border-radius: 10px;
+}
+
+main::-webkit-scrollbar-thumb:hover {
+    background-color: var(--azul-escuro);
+}
+
+.class {
+    padding: 10px;
+    margin: 10px 10px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-width: 200px;
+}
+
+.mageDiv {
+    background-color: var(--mageDiv);
+}
+
+.warriorDiv {
+    background-color: var(--warriorDiv);
+}
+
+.assassinDiv {
+    background-color: var(--assassinDiv);
+}
+
+.archerDiv {
+    background-color: var(--archerDiv);
+}
+
+.titleClass {
+    font-size: 2rem;
+    text-align: center;
+    margin: 5px 10px 10px;
+}
+
+.imgClass {
+    width: 90px;
+    margin: 0 auto 15px;
+}
+
+.containerInfo {
+    max-height: 0;
+    transition: max-height 0.15s ease-out;
+    overflow: hidden;
+}
+
+.class:hover .containerInfo {
+    max-height: 1000px;
+    transition: max-height 0.25s ease-in;
+}
+
+.info {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+button,
+.enviar {
+    font-size: 2rem;
+    padding: 15px;
+    opacity: 1;
+    border-radius: 10px;
+    border: none;
+    font-family: 'Super Legend Boy', sans-serif;
+    color: white;
+    cursor: pointer;
+}
+
+.mage {
+    background-color: var(--mage);
+}
+
+.warrior {
+    background-color: var(--warrior);
+}
+
+.assassin {
+    background-color: var(--assassin);
+}
+
+.archer {
+    background-color: var(--archer);
+}
+
+form {
+    width: max-content;
+    max-width: 85%;
+    background-color: var(--background-second-tranparent);
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+label {
+    font-size: 2.5rem;
+}
+
+input#idade,
+input#name {
+    margin: 15px 0 20px;
+    border: none;
+    padding: 10px 5px;
+    border-bottom: 1px solid black;
+    background-color: transparent;
+    color: white;
+    font-size: 2rem;
+    font-family: 'Super Legend Boy', sans-serif;
+}
+
+input#sexoF,
+input#sexoM {
+    margin: 0 10px;
+    width: 15px;
+    height: 15px;
+}
+
+.enviar {
+    padding: 20px;
+    margin: 20px 0 0;
+    background-color: var(--background-second)
+}
+
+.confirmar {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--background-second-tranparent);
+    border-radius: 20px;
+}
+
+.confirmar .informacoes {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    align-self: flex-start;
+}
+
+.confirmar div{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    width: 50%;
+}
+
+.decisao {
+    background-color: var(--background-second);
+    margin: 7.5px 0;
+}
+
+footer {
+    border: var(--border);
+    width: 90vw;
+    height: 100px;
+    position: fixed;
+    bottom: 20px;
+    align-self: center;
+    background-color: var(--background-h-f);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.conteinerMenu{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color:  var(--background-second-tranparent);
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.conteinerMenu h2{
+    margin: 10px 0;
+    font-size: 3rem;
+}
+
+#dungeon,
+#status,
+#reset{
+    margin-bottom: 10px;
+}
+
+#dungeon{
+    background-color: var(--background-second-white);
+}
+
+#status{
+    background-color: var(--background-second);
+}
+
+#reset{
+    background-color: var(--background-second-black);
+}
+
+.containerStatus, .containerDungeon{
+    padding: 20px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--background-second-tranparent);
+    max-width: 90%;
+    min-width: 300px;
+}
+
+.fechar{
+    background-color: var(--warrior);
+    width: max-content;
+    padding: 20px;
+    background-image: url(../img/fechar.png);
+    background-size: 25px;
+    background-position: center;
+    margin-top: -10px;
+    margin-right: -10px;
+    background-repeat: no-repeat;
+    border-radius: 100%;
+    border: 1px outset white;
+    align-self: flex-end;
+}
+
+.containerStatus h2, .containerDungeon h2{
+    margin-top: -40px;
+    text-align: center;
+    margin-bottom: 10px;
+    width: max-content;
+    align-self: center;
+    font-size: 3rem;
+}
+
+.containerStatus p, .containerStatus li{
+    font-size: 2rem;
+}
+
+.containerStatus ul{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.containerStatus p, .containerDungeon button{
+    margin-bottom: 15px;
+}
+
+.containerStatus li{
+    margin: 5px 10px 5px 0;
+}
+
+.monstros{
+    background-color: var(--monstro);
+}
+
+.containerLuta{
+   min-height: 100%;
+   width: 100%;
+   display: flex;
+}
+
+.containerLuta div{
+    height: max-content;
+    display: flex;
+    width: 100%;
+    align-self: flex-end;
+}
+
+.ataques{
+    justify-self: flex-end;
+    background-color: var(--background-second-black);
+    margin-right: 15px;
+}
