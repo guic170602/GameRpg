@@ -1,7 +1,11 @@
 function menu(player){
+    const body = document.querySelector('body')
     const main = document.querySelector('main')
-    const footer = document.querySelector('footer')
+    let footer = document.querySelector('footer')
     main.innerHTML = ''
+    footer.remove()
+    footer = document.createElement('footer')
+    body.appendChild(footer)
     footer.innerHTML = `Ola ${player.nome}. Selecione o que deseja fazer!`
     writer(footer)
     const div = document.createElement('div')

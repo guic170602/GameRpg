@@ -1,7 +1,11 @@
 function dungeon(player) {
+    const body = document.querySelector('body')
     const main = document.querySelector('main')
-    const footer = document.querySelector('footer')
+    let footer = document.querySelector('footer')
     main.innerHTML = ''
+    footer.remove()
+    footer = document.createElement('footer')
+    body.appendChild(footer)
     footer.innerHTML = `Por favor escolha um andar para se aventurar!!`
     writer(footer)
     const div = document.createElement('div')

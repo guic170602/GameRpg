@@ -96,9 +96,13 @@ function archer(){
 }
 
 function principal(){
+    const body = document.querySelector('body')
     const main = document.querySelector('main')
-    const footer = document.querySelector('footer')
+    let footer = document.querySelector('footer')
     main.innerHTML = ''
+    footer.remove()
+    footer = document.createElement('footer')
+    body.appendChild(footer)
     footer.innerHTML = 'Escolha a sua classe:'
     writer(footer)
     main.style.display = 'flex'
@@ -132,9 +136,13 @@ function escolha(){
 }
 
 function formulario(classe){
+    const body = document.querySelector('body')
     const main = document.querySelector('main')
-    const footer = document.querySelector('footer')
+    let footer = document.querySelector('footer')
     main.innerHTML = ''
+    footer.remove()
+    footer = document.createElement('footer')
+    body.appendChild(footer)
     footer.innerHTML = `Você escolheu ${classe}. Nos diga seu nome e idade`
     writer(footer)
     const form = document.createElement('form')
@@ -170,9 +178,13 @@ function formulario(classe){
 }
 
 function posFormulario(classe, nome, idade){
+    const body = document.querySelector('body')
     const main = document.querySelector('main')
-    const footer = document.querySelector('footer')
+    let footer = document.querySelector('footer')
     main.innerHTML = ''
+    footer.remove()
+    footer = document.createElement('footer')
+    body.appendChild(footer)
     footer.innerHTML = `Você inseriu essas informações. Tem certeza?`
     writer(footer)
     const player = escolhaPlayer(classe, nome, idade)

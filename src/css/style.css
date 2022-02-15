@@ -203,22 +203,6 @@ input#sexoM {
     margin: 7.5px 0;
 }
 
-footer {
-    border: var(--border);
-    width: 90vw;
-    height: 100px;
-    position: fixed;
-    bottom: 20px;
-    align-self: center;
-    background-color: var(--background-h-f);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-    font-size: 2rem;
-    text-align: center;
-}
-
 .conteinerMenu{
     display: flex;
     flex-direction: column;
@@ -310,17 +294,92 @@ footer {
    min-height: 100%;
    width: 100%;
    display: flex;
+   flex-wrap: wrap;
 }
 
-.containerLuta div{
+.containerLuta{
     height: max-content;
     display: flex;
     width: 100%;
-    align-self: flex-end;
+    min-height: 100%;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .ataques{
-    justify-self: flex-end;
     background-color: var(--background-second-black);
     margin-right: 15px;
+}
+
+.divLuta{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.divLuta p{
+    margin-top: -30px;
+    margin-bottom: 20px;
+}
+
+
+.containerPlayer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+}
+
+.containerPlayer img{
+    width: 200px;
+}
+
+.containerVs{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerVs img{
+    width: 350px;
+    margin-left: -75px;
+}
+
+.containerMonstro{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+}
+
+.containerMonstro img{
+    width: 200px;
+}
+
+footer {
+    border: var(--border);
+    width: 90vw;
+    height: 100px;
+    position: fixed;
+    bottom: 3vh;
+    align-self: center;
+    background-color: var(--background-h-f);
+    display: flex;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 2rem;
+}
+
+.passar{
+    position: fixed;
+    bottom: 27px;
+    left: 91.5vw;
+    animation: vaiEvolta 1s infinite;
 }

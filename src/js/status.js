@@ -1,7 +1,11 @@
-function status (player) {
+function status(player) {
+    const body = document.querySelector('body')
     const main = document.querySelector('main')
-    const footer = document.querySelector('footer')
+    let footer = document.querySelector('footer')
     main.innerHTML = ''
+    footer.remove()
+    footer = document.createElement('footer')
+    body.appendChild(footer)
     footer.innerHTML = `Estes são seus status atualmente`
     writer(footer)
     const div = document.createElement('div')
@@ -23,10 +27,10 @@ function status (player) {
     pIdade.innerHTML = 'Idade: ' + player.idade
     div.appendChild(pIdade)
     const pLevel = document.createElement('p')
-    pLevel.innerHTML = 'Level: ' + player.levelAtual
+    pLevel.innerHTML = 'Level: ' + player.level
     div.appendChild(pLevel)
     const pLife = document.createElement('p')
-    pLife.innerHTML = 'Vida: ' + player.life
+    pLife.innerHTML = 'Vida: ' + player.vida
     div.appendChild(pLife)
     const pMana = document.createElement('p')
     pMana.innerHTML = 'Mana: ' + player.mana
