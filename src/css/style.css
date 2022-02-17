@@ -15,7 +15,6 @@ body {
 }
 
 header {
-    padding: 15px 0;
     width: 80vw;
     text-align: center;
     margin: 10px auto 0;
@@ -62,7 +61,8 @@ main::-webkit-scrollbar-thumb:hover {
     border-radius: 20px;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
+    justify-content: space-between;
+    min-height: 206px;
     max-width: 200px;
 }
 
@@ -122,19 +122,19 @@ button,
     cursor: pointer;
 }
 
-.mage {
+.buttonMage {
     background-color: var(--mage);
 }
 
-.warrior {
+.buttonWarrior {
     background-color: var(--warrior);
 }
 
-.assassin {
+.buttonAssassin {
     background-color: var(--assassin);
 }
 
-.archer {
+.buttonArcher {
     background-color: var(--archer);
 }
 

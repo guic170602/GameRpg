@@ -2,13 +2,12 @@ function mage() {
     const mage = document.createElement('div')
     mage.classList.add('class')
     mage.classList.add('mageDiv')
-    mage.classList.add('containerClass')
     const mageButton = document.createElement('button')
     const mageTitle = document.createElement('h2')
     mageTitle.innerHTML = 'Mago'
     mageTitle.classList.add('titleClass')
     mageButton.innerHTML += 'Escolha'
-    mageButton.classList.add('mage')
+    mageButton.classList.add('buttonMage')
     const divInfo = document.createElement('div')
     divInfo.classList.add('containerInfo')
     const mageInfo = document.createElement('p')
@@ -38,7 +37,7 @@ function warrior() {
     imgClass.src = ('./src/img/classes/warrior.png')
     warriorTitle.classList.add('titleClass')
     warriorButton.innerHTML += 'Escolha'
-    warriorButton.classList.add('warrior')
+    warriorButton.classList.add('buttonWarrior')
     const divInfo = document.createElement('div')
     divInfo.classList.add('containerInfo')
     const warriorInfo = document.createElement('p')
@@ -62,7 +61,7 @@ function assassin() {
     assassinTitle.innerHTML = 'Assassino'
     assassinTitle.classList.add('titleClass')
     assassinButton.innerHTML += 'Escolha'
-    assassinButton.classList.add('assassin')
+    assassinButton.classList.add('buttonAssassin')
     const divInfo = document.createElement('div')
     divInfo.classList.add('containerInfo')
     const assassinInfo = document.createElement('p')
@@ -85,7 +84,7 @@ function archer() {
     archerTitle.innerHTML = 'Arqueiro'
     archerTitle.classList.add('titleClass')
     archerButton.innerHTML += 'Escolha'
-    archerButton.classList.add('archer')
+    archerButton.classList.add('buttonArcher')
     const divInfo = document.createElement('div')
     divInfo.classList.add('containerInfo')
     const archerInfo = document.createElement('p')
@@ -109,10 +108,6 @@ function escolhaClasse(valorNome = '', valorIdade = '') {
     body.appendChild(footer)
     footer.innerHTML = 'Escolha a sua classe:'
     writer(footer)
-    main.style.display = 'flex'
-    main.style.alignItems = 'center'
-    main.style.justifyContent = ''
-
     main.appendChild(mage())
     main.appendChild(warrior())
     main.appendChild(assassin())
