@@ -3,8 +3,8 @@ class Warrior extends Player {
         super(classe, nome, idade)
         this.img = './src/img/classes/warrior.png'
         this._vida = 10
-        this.vidaMax = 10
-        this.defense = 10
+        this.vidaMax = 110
+        this.defense = 110
         this.phisAttack = 25
         this.magicAttack = 5
     }
