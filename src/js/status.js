@@ -45,7 +45,7 @@ function status(player) {
     pMagicAttack.innerHTML = 'Ataque Magico: ' + player.magicAttack
     div.appendChild(pMagicAttack)
     const pPassar = document.createElement('p')
-    pPassar.innerHTML = 'Falta ' + player.passar + 'xp para passar de nivel'
+    pPassar.innerHTML = 'Falta ' + (player.passar - player.exp) + 'xp para passar de nivel'
     div.appendChild(pPassar)
     const pAtacks = document.createElement('p')
     pAtacks.innerHTML = 'Ataques'

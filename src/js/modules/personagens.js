@@ -20,7 +20,11 @@ class Player {
     }
 
     get passar() {
-        return this._passar - this.exp
+        return this._passar
+    }
+
+    set passar(value) {
+        this._passar = value
     }
 
     get exp() {
@@ -28,7 +32,7 @@ class Player {
     }
 
     set exp(valor) {
-        this._exp += valor
+        this._exp = valor
     }
 
     get vida() {
@@ -58,29 +62,32 @@ class Player {
         if (damage - target.defense > 0) {
             target.vida = -(damage - target.defense)
             damage -= target.defense
-            return `${target.nome} rececebeu ${damage} de dano e esta com ${target.vida} vida`
+            return `${target.nome} rececebeu ${damage} de dano!!`
         }
     }
 
     recebeXp(value) {
         let string = ''
-        while (value >= this._passar) {
-            this.exp = value
+            // Verifica quanto falta para passar de nivel
+        let paraPassar = this.passar - this.exp
+            // Pegamos o resultado da subtração de quanto falta pra passar e valor de xp recebido
+        this.exp += value
+        console.log('Falta ' + paraPassar + ' para passar de nivel;')
+        console.log('O valor de Xp recebido foi: ', value)
+        console.log('Falta ' + (this.passar - this.exp) + ' para upar')
+        const levelAtual = this.level
+            // Verifica se quantidade de xp ganha é suficiente para passar de nivel
+        while (this.passar - this.exp <= 0) {
             this.passarNivel()
             string = `Voce passou para o nivel ${this.level}!! `
-            value -= this._passar
-            this.recebeXp(value)
+                // Ao passar de nivel temos que acrescentar a quantidade de xp que sera nescessario para passar para o proximo nivel
+                // console.log('Passou!! Falta agora ' + resto + ' para passar')
         }
-
-        this.exp += value
-        string += `Falta agora ${this.passar}xp para passar de nivel`
-
+        // A quantidade de exp que o usuario tem de acordo com a quantidade de xp que recebeu
+        if (levelAtual == this.level) {
+            string = `Falta ${this.passar - this.exp}xp para passar de nivel`
+        }
         return string
-    }
-
-    passarNivel() {
-        this.level++
-            this._exp = 0
     }
 }
 
@@ -113,7 +120,7 @@ class Mage extends Player {
         } else {
             target.vida = -damage
             this.mana = 13
-            return `${target.nome} recebeu ${damage} de dano e esta com ${target.vida} vida e ficou com ${this.mana} de mana`
+            return `${target.nome} recebeu ${damage} de dano!! E você ficou com ${this.mana} de mana`
         }
     }
 
@@ -122,12 +129,26 @@ class Mage extends Player {
 class Warrior extends Player {
     constructor(classe, nome, idade) {
         super(classe, nome, idade)
-        this.img = './src/img/warrior.png'
+        this.img = './src/img/classes/warrior.png'
         this._vida = 110
         this.vidaMax = 110
         this.defense = 10
         this.phisAttack = 25
         this.magicAttack = 5
+    }
+
+    passarNivel() {
+        this.level++
+            if (this.level == 2) {
+                this._vida += 50
+                this.vidaMax += 50
+                this.defense += 4
+                this._mana += 15
+                this.phisAttack += 7
+                this.magicAttack += 3
+                this.passar += 50
+            }
+        this.exp = 0
     }
 }
 

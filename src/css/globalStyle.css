@@ -1,5 +1,20 @@
-/* Reset */
-body, header, main, footer, p, div, button, h1, h2, h3, h4, h5, h6, button, img, ul, li{
+body,
+header,
+main,
+footer,
+p,
+div,
+button,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button,
+img,
+ul,
+li {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -10,16 +25,14 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
-/*Reset*/
 
-/*Variaveis*/
-:root{
+:root {
     font-size: 8px;
     font-family: 'Super Legend Boy', sans-serif;
     color: white;
     --border: 2px inset #ffc90e;
-    --background-h-f: #0f1518b7;
-    --mage:  #017579;
+    --background-h-f: #0f1518a8;
+    --mage: #017579;
     --warrior: #a20000;
     --assassin: #bc19d7;
     --archer: #006343;
@@ -34,14 +47,78 @@ input::-webkit-inner-spin-button {
     --scroll: #1b0f0f9c;
     --monstro: #35005b;
 }
-/*Variaveis*/
 
 @keyframes fadeIn {
-    0%{opacity: 0;}
-    100%{opacity: 1;}
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 @keyframes vaiEvolta {
-    0%, 100%{transform: translate(0, 0)}
-    50%{transform: translate(10px, 0);}
+    0%,
+    100% {
+        transform: translate(0, 0)
+    }
+    50% {
+        transform: translate(10px, 0);
+    }
+}
+
+@keyframes player {
+    0% {
+        transform: translate(-300px, 0);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes monstro {
+    0% {
+        transform: translate(300px, 0);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes vs {
+    50% {
+        transform: scale(1.10);
+    }
+}
+
+@keyframes baterNoMonstro {
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(-20px, 0);
+    }
+    75% {
+        transform: translate(20px, 0);
+    }
+}
+
+@keyframes baterNoPlayer {
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(20px, 0);
+    }
+    75% {
+        transform: translate(-20px, 0);
+    }
+}
+
+@media screen and (max-width: 500px) {
+     :root {
+        font-size: 4px;
+    }
 }

@@ -1,4 +1,4 @@
-html{
+html {
     width: 100%;
     height: 100%;
 }
@@ -23,6 +23,7 @@ header {
     border-radius: 20px;
     font-size: 3.5rem;
     background-color: var(--background-h-f);
+    backdrop-filter: blur(10px);
 }
 
 main {
@@ -32,6 +33,7 @@ main {
     margin: 35px auto 0;
     display: flex;
     flex-wrap: wrap;
+    backdrop-filter: blur(10px);
     align-items: center;
     justify-content: center;
     border: var(--border);
@@ -190,7 +192,7 @@ input#sexoM {
     align-self: flex-start;
 }
 
-.confirmar div{
+.confirmar div {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -203,39 +205,40 @@ input#sexoM {
     margin: 7.5px 0;
 }
 
-.conteinerMenu{
+.conteinerMenu {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color:  var(--background-second-tranparent);
+    background-color: var(--background-second-tranparent);
     padding: 20px;
     border-radius: 20px;
 }
 
-.conteinerMenu h2{
+.conteinerMenu h2 {
     margin: 10px 0;
     font-size: 3rem;
 }
 
 #dungeon,
 #status,
-#reset{
+#reset {
     margin-bottom: 10px;
 }
 
-#dungeon{
+#dungeon {
     background-color: var(--background-second-white);
 }
 
-#status{
+#status {
     background-color: var(--background-second);
 }
 
-#reset{
+#reset {
     background-color: var(--background-second-black);
 }
 
-.containerStatus, .containerDungeon{
+.containerStatus,
+.containerDungeon {
     padding: 20px;
     border-radius: 20px;
     display: flex;
@@ -245,7 +248,7 @@ input#sexoM {
     min-width: 300px;
 }
 
-.fechar{
+.fechar {
     background-color: var(--warrior);
     width: max-content;
     padding: 20px;
@@ -260,7 +263,8 @@ input#sexoM {
     align-self: flex-end;
 }
 
-.containerStatus h2, .containerDungeon h2{
+.containerStatus h2,
+.containerDungeon h2 {
     margin-top: -40px;
     text-align: center;
     margin-bottom: 10px;
@@ -269,35 +273,37 @@ input#sexoM {
     font-size: 3rem;
 }
 
-.containerStatus p, .containerStatus li{
+.containerStatus p,
+.containerStatus li {
     font-size: 2rem;
 }
 
-.containerStatus ul{
+.containerStatus ul {
     display: flex;
     flex-wrap: wrap;
 }
 
-.containerStatus p, .containerDungeon button{
+.containerStatus p,
+.containerDungeon button {
     margin-bottom: 15px;
 }
 
-.containerStatus li{
+.containerStatus li {
     margin: 5px 10px 5px 0;
 }
 
-.monstros{
+.monstros {
     background-color: var(--monstro);
 }
 
-.containerLuta{
-   min-height: 100%;
-   width: 100%;
-   display: flex;
-   flex-wrap: wrap;
+.containerLuta {
+    min-height: 100%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
 }
 
-.containerLuta{
+.containerLuta {
     height: max-content;
     display: flex;
     width: 100%;
@@ -306,12 +312,12 @@ input#sexoM {
     flex-direction: column;
 }
 
-.ataques{
+.ataques {
     background-color: var(--background-second-black);
     margin-right: 15px;
 }
 
-.divLuta{
+.divLuta {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     width: 100%;
@@ -319,13 +325,20 @@ input#sexoM {
     margin-bottom: 50px;
 }
 
-.divLuta p{
+.divLuta>p {
     margin-top: -30px;
     margin-bottom: 20px;
 }
 
+.comecoLutaPlayer {
+    animation: player 1s 1;
+}
 
-.containerPlayer{
+.comecoLutaMonstro {
+    animation: monstro 1s 1;
+}
+
+.containerPlayer {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -333,23 +346,23 @@ input#sexoM {
     font-size: 3rem;
 }
 
-.containerPlayer img{
-    width: 200px;
+.containerPlayer img {
+    width: 50%;
 }
 
-.containerVs{
+.containerVs {
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.containerVs img{
-    width: 350px;
-    margin-left: -75px;
+.containerVs img {
+    width: 80%;
 }
 
-.containerMonstro{
+.containerMonstro {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -357,29 +370,65 @@ input#sexoM {
     font-size: 3rem;
 }
 
-.containerMonstro img{
-    width: 200px;
+.containerMonstro img {
+    width: 50%;
+}
+
+.baterNoMonstro {
+    animation: baterNoMonstro 1s;
+}
+
+.baterNoPlayer {
+    animation: baterNoPlayer 1s;
+}
+
+.vidaTotalMonstro,
+.vidaTotalPlayer {
+    width: 90%;
+    border: 2px inset #ffc90e;
+    height: max-content;
+    overflow: hidden;
+    margin-top: 25px;
+    border-radius: 100px;
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.vidaTotalMonstro p,
+.vidaTotalPlayer p {
+    margin-top: -25px;
+}
+
+.vidaMonstro,
+.vidaPlayer {
+    background-color: rgb(0, 118, 8);
+    margin: -1px;
+    border-radius: 100px;
+    /* transition: all 1.5s; */
 }
 
 footer {
     border: var(--border);
     width: 90vw;
     height: 100px;
-    position: fixed;
-    bottom: 3vh;
+    margin-top: 50px;
     align-self: center;
     background-color: var(--background-h-f);
     display: flex;
     border-radius: 10px;
+    backdrop-filter: blur(10px);
     justify-content: center;
     align-items: center;
     flex-direction: column;
     font-size: 2rem;
 }
 
-.passar{
-    position: fixed;
-    bottom: 27px;
-    left: 91.5vw;
+.passar {
+    position: absolute;
+    bottom: 0;
+    align-self: flex-end;
+    margin-right: 20px;
     animation: vaiEvolta 1s infinite;
 }

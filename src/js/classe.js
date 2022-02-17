@@ -1,4 +1,4 @@
-function mage(){
+function mage() {
     const mage = document.createElement('div')
     mage.classList.add('class')
     mage.classList.add('mageDiv')
@@ -12,17 +12,21 @@ function mage(){
     const divInfo = document.createElement('div')
     divInfo.classList.add('containerInfo')
     const mageInfo = document.createElement('p')
+    const imgClass = document.createElement('img')
+    imgClass.classList.add('imgClass')
+    imgClass.src = ('./src/img/classes/mage.png')
     mageInfo.innerHTML = 'Especialista em magias de longa distância, pode causar uma grande quantidide de dano em área.'
     mageInfo.classList.add('info')
     divInfo.appendChild(mageInfo)
     mage.appendChild(mageTitle)
+    mage.appendChild(imgClass)
     mage.appendChild(divInfo)
-    mage.appendChild(mageButton) 
+    mage.appendChild(mageButton)
     mage.style.animation = 'fadeIn 1s 1 ease 0s both'
     return mage
 }
 
-function warrior(){
+function warrior() {
     const warrior = document.createElement('div')
     warrior.classList.add('class')
     warrior.classList.add('warriorDiv')
@@ -30,8 +34,8 @@ function warrior(){
     const warriorTitle = document.createElement('h2')
     warriorTitle.innerHTML = 'Guerreiro'
     const imgClass = document.createElement('img')
-    imgClass.src = ('./src/img/warrior.png')
     imgClass.classList.add('imgClass')
+    imgClass.src = ('./src/img/classes/warrior.png')
     warriorTitle.classList.add('titleClass')
     warriorButton.innerHTML += 'Escolha'
     warriorButton.classList.add('warrior')
@@ -44,20 +48,20 @@ function warrior(){
     warrior.appendChild(warriorTitle)
     warrior.appendChild(imgClass)
     warrior.appendChild(divInfo)
-    warrior.appendChild(warriorButton) 
+    warrior.appendChild(warriorButton)
     warrior.style.animation = 'fadeIn 1s 1 ease 0.2s both'
     return warrior
 }
 
-function assassin(){
+function assassin() {
     const assassin = document.createElement('div')
     assassin.classList.add('class')
     assassin.classList.add('assassinDiv')
     const assassinButton = document.createElement('button')
     const assassinTitle = document.createElement('h2')
-    assassinTitle.innerHTML = 'Assassino' 
-    assassinTitle.classList.add('titleClass')    
-    assassinButton.innerHTML += 'Escolha' 
+    assassinTitle.innerHTML = 'Assassino'
+    assassinTitle.classList.add('titleClass')
+    assassinButton.innerHTML += 'Escolha'
     assassinButton.classList.add('assassin')
     const divInfo = document.createElement('div')
     divInfo.classList.add('containerInfo')
@@ -67,12 +71,12 @@ function assassin(){
     divInfo.appendChild(assassinInfo)
     assassin.appendChild(assassinTitle)
     assassin.appendChild(divInfo)
-    assassin.appendChild(assassinButton) 
+    assassin.appendChild(assassinButton)
     assassin.style.animation = 'fadeIn 1s 1 ease 0.4s both'
     return assassin
 }
 
-function archer(){
+function archer() {
     const archer = document.createElement('div')
     archer.classList.add('class')
     archer.classList.add('archerDiv')
@@ -95,7 +99,7 @@ function archer(){
     return archer
 }
 
-function principal(){
+function escolhaClasse(valorNome = '', valorIdade = '') {
     const body = document.querySelector('body')
     const main = document.querySelector('main')
     let footer = document.querySelector('footer')
@@ -113,29 +117,29 @@ function principal(){
     main.appendChild(warrior())
     main.appendChild(assassin())
     main.appendChild(archer())
-    escolha()
+    escolha(valorNome, valorIdade)
     audio()
 }
 
-function escolha(){
+function escolha(valorNome, valorIdade) {
     const buttons = document.getElementsByTagName('button')
     const titles = document.getElementsByClassName('titleClass')
-    for(let i = 0; i < buttons.length; i++) {
-        buttons[i].addEventListener('click', ()=>{
-            if(titles[i].innerHTML.toLowerCase() === 'mago'){
-                formulario('Mago')
-            }else if(titles[i].innerHTML.toLowerCase() === 'guerreiro'){
-                formulario('Guerreiro')
-            }else if(titles[i].innerHTML.toLowerCase() === 'assassino'){
-                formulario('Assassino')
-            }else{
-                formulario('Arqueiro')
+    for (let i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener('click', () => {
+            if (titles[i].innerHTML.toLowerCase() === 'mago') {
+                formulario('Mago', valorNome, valorIdade)
+            } else if (titles[i].innerHTML.toLowerCase() === 'guerreiro') {
+                formulario('Guerreiro', valorNome, valorIdade)
+            } else if (titles[i].innerHTML.toLowerCase() === 'assassino') {
+                formulario('Assassino', valorNome, valorIdade)
+            } else {
+                formulario('Arqueiro', valorNome, valorIdade)
             }
         })
     };
 }
 
-function formulario(classe){
+function formulario(classe, valorNome, valorIdade) {
     const body = document.querySelector('body')
     const main = document.querySelector('main')
     let footer = document.querySelector('footer')
@@ -155,6 +159,7 @@ function formulario(classe){
     inputName.name = 'name'
     inputName.id = 'name'
     inputName.autocomplete = "off"
+    inputName.value = valorNome
     form.appendChild(inputName)
     const labelIdade = document.createElement('label')
     labelIdade.for = 'idade'
@@ -164,6 +169,7 @@ function formulario(classe){
     inputIdade.type = 'number'
     inputIdade.name = 'idade'
     inputIdade.id = 'idade'
+    inputIdade.value = valorIdade
     form.appendChild(inputIdade)
     const submit = document.createElement('input')
     submit.type = 'submit'
@@ -177,7 +183,7 @@ function formulario(classe){
     })
 }
 
-function posFormulario(classe, nome, idade){
+function posFormulario(classe, nome, idade) {
     const body = document.querySelector('body')
     const main = document.querySelector('main')
     let footer = document.querySelector('footer')
@@ -188,28 +194,26 @@ function posFormulario(classe, nome, idade){
     footer.innerHTML = `Você inseriu essas informações. Tem certeza?`
     writer(footer)
     const player = escolhaPlayer(classe, nome, idade)
-    
-    
+
+
     main.appendChild(divInfo(player))
 }
 
-function escolhaPlayer(classe, nome, idade){
-    console.log(classe)
+function escolhaPlayer(classe, nome, idade) {
     let player = ''
-    if(classe.toLowerCase() === 'mago'){
+    if (classe.toLowerCase() === 'mago') {
         player = new Mage(classe, nome, idade)
-    }else if(classe.toLowerCase() === 'guerreiro'){
+    } else if (classe.toLowerCase() === 'guerreiro') {
         player = new Warrior(classe, nome, idade)
-    }else if(classe.toLowerCase() === 'guerreiro'){
+    } else if (classe.toLowerCase() === 'guerreiro') {
         player = new Assassin(classe, nome, idade)
-    }else{
+    } else {
         player = new Archer(classe, nome, idade)
     }
-    console.log(player)
     return player
 }
 
-function divInfo(player){
+function divInfo(player) {
     const div = document.createElement('div')
     div.classList.add('confirmar')
     const pClasse = document.createElement('p')
@@ -230,13 +234,13 @@ function divInfo(player){
     div.appendChild(img)
     const sim = document.createElement('button')
     const nao = document.createElement('button')
-    sim.innerHTML = 'Sim'    
-    nao.innerHTML = 'Não'    
+    sim.innerHTML = 'Sim'
+    nao.innerHTML = 'Não'
     const decisao = document.createElement('div')
     sim.classList.add('decisao')
     nao.classList.add('decisao')
     sim.addEventListener('click', () => menu(player))
-    nao.addEventListener('click', () => principal())
+    nao.addEventListener('click', () => escolhaClasse(player.nome, player.idade))
     decisao.appendChild(sim)
     decisao.appendChild(nao)
     div.appendChild(decisao)
@@ -244,4 +248,4 @@ function divInfo(player){
 }
 
 
-principal()
+escolhaClasse()

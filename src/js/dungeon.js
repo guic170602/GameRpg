@@ -35,7 +35,7 @@ function andar1(player) {
     andar.appendChild(monstro)
     andar.classList.add('monstros')
     andar.addEventListener('click', () => {
-        const monster = new Monstro1()
+        const monster = new Slime()
         luta(player, monster)
     })
     return andar
@@ -50,6 +50,10 @@ function andar2(player) {
     monstro.innerHTML = 'Monstro level 3'
     andar.appendChild(monstro)
     andar.classList.add('monstros')
+    andar.addEventListener('click', () => {
+        const monster = new Goblin()
+        luta(player, monster)
+    })
     return andar
 }
 
