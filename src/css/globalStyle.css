@@ -122,6 +122,15 @@ input::-webkit-inner-spin-button {
     }
 }
 
+@keyframes morrer {
+    25% {
+        transform: translate(0, -30px)
+    }
+    75% {
+        transform: translate(0, 400px)
+    }
+}
+
 @media screen and (max-width: 500px) {
      :root {
         font-size: 4px;

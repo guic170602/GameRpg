@@ -40,9 +40,7 @@ class Player {
     }
 
     set vida(valor) {
-        if (valor >= this.vidaMax) this._vida = valor
-        else this._vida += valor
-
+        this._vida + valor >= 0 ? this._vida += valor : this._vida = 0
     }
 
     get mana() {

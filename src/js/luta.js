@@ -123,8 +123,19 @@ function addEvent(buttonAtack, footer, player, atack, monstro) {
             }
         }, 50)
 
+        if (verifica(player, monstro)) {
+            const imgMonstro = document.querySelector('.containerMonstro img')
+            imgMonstro.classList.add('animacaoMorrer')
+        }
+
         // Proxima ação
-        footer.addEventListener('click', () => verifica(player, monstro) ? playerWins(player, monstro, footer) : vezDoMonstro(player, monstro, footer))
+        footer.addEventListener('click', () => {
+            if (verifica(player, monstro)) {
+                playerWins(player, monstro, footer)
+            } else {
+                vezDoMonstro(player, monstro, footer)
+            }
+        })
     })
 }
 
@@ -205,6 +216,11 @@ function vezDoMonstro(player, monstro, footer) {
         }
     }, 50)
 
+    if (verifica(player, monstro)) {
+        const imgPlayer = document.querySelector('.containerPlayer img')
+        imgPlayer.classList.add('animacaoMorrer')
+    }
+
     footer.addEventListener('click', () => verifica(player, monstro) ? monsterWins(player, monstro, footer) : vezDoPlayer(player, monstro, footer))
 }
 
@@ -233,4 +249,4 @@ function getRandomPower(min, max) {
     return Math.random() * (max - min) + min;
 }
 
-// luta(new Warrior('Guerreiro', 'Guiry', '19'), new Slime())
+luta(new Warrior('Guerreiro', 'Guiry', '19'), new Slime())
