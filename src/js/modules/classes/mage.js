@@ -1,7 +1,7 @@
 class Mage extends Player {
     constructor(classe, nome, idade) {
         super(classe, nome, idade)
-        this.img = './src/img/mage.png'
+        this.img = './src/img/classes/mage.png'
         this._vida = 80
         this.vidaMax = 80
         this.defense = 5

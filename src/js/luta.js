@@ -224,6 +224,8 @@ function vezDoMonstro(player, monstro, footer) {
     footer.addEventListener('click', () => verifica(player, monstro) ? monsterWins(player, monstro, footer) : vezDoPlayer(player, monstro, footer))
 }
 
+
+
 function vezDoPlayer(player, monstro, footer) {
     const imgMonstro = document.querySelector('.containerMonstro img')
     imgMonstro.classList.remove('baterNoPlayer')
@@ -249,4 +251,4 @@ function getRandomPower(min, max) {
     return Math.random() * (max - min) + min;
 }
 
-// luta(new Warrior('Guerreiro', 'Guiry', '19'), new Slime())
+luta(new Warrior('Guerreiro', 'Guiry', '19'), new Slime())
