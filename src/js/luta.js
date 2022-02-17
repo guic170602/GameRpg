@@ -249,4 +249,4 @@ function getRandomPower(min, max) {
     return Math.random() * (max - min) + min;
 }
 
-luta(new Warrior('Guerreiro', 'Guiry', '19'), new Slime())
+// luta(new Warrior('Guerreiro', 'Guiry', '19'), new Slime())
