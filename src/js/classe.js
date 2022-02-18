@@ -41,7 +41,7 @@ function warrior() {
     const divInfo = document.createElement('div')
     divInfo.classList.add('containerInfo')
     const warriorInfo = document.createElement('p')
-    warriorInfo.innerHTML = 'Possui talento nato para combate corpo a corpo, tendo grande resistência e inflinge um dano considerável.'
+    warriorInfo.innerHTML = 'Proficiente em combates de curta distância, causa dano físico considerável e possui grande defesa.'
     warriorInfo.classList.add('info')
     divInfo.appendChild(warriorInfo)
     warrior.appendChild(warriorTitle)
@@ -241,6 +241,5 @@ function divInfo(player) {
     div.appendChild(decisao)
     return div
 }
-
 
 escolhaClasse()

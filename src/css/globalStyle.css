@@ -123,10 +123,10 @@ input::-webkit-inner-spin-button {
 }
 
 @keyframes morrer {
-    25% {
+    50% {
         transform: translate(0, -30px)
     }
-    75% {
+    100% {
         transform: translate(0, 400px);
     }
 }

@@ -304,13 +304,6 @@ input#sexoM {
 }
 
 .containerLuta {
-    min-height: 100%;
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.containerLuta {
     height: max-content;
     display: flex;
     width: 100%;
@@ -329,13 +322,8 @@ input#sexoM {
     grid-template-columns: repeat(3, 1fr);
     width: 100%;
     justify-content: center;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
     overflow: hidden;
-}
-
-.divLuta>p {
-    margin-top: -30px;
-    margin-bottom: 20px;
 }
 
 .comecoLutaPlayer {
@@ -382,6 +370,11 @@ input#sexoM {
     width: 50%;
 }
 
+.containerPlayer>p,
+.containerMonstro>p {
+    margin-bottom: 20px;
+}
+
 .baterNoMonstro {
     animation: baterNoMonstro 1s;
 }
@@ -417,8 +410,11 @@ input#sexoM {
 .vidaPlayer {
     background-color: rgb(0, 118, 8);
     margin: -1px;
-    border-radius: 100px;
-    /* transition: all 1.5s; */
+    border-radius: 10px;
+}
+
+.golpes {
+    transition: 1s;
 }
 
 footer {

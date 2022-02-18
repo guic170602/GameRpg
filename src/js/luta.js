@@ -92,7 +92,7 @@ function addEvent(buttonAtack, footer, player, atack, monstro) {
 
         // Escondendo os Golpes
         const divAtacks = document.querySelector('.golpes')
-        divAtacks.style.display = 'none'
+        divAtacks.style.transform = 'translate(-3000px, 0)'
 
         // Tira a animação do começo da luta
         const imgPlayer = document.querySelector('.containerPlayer img')
@@ -224,6 +224,26 @@ function vezDoMonstro(player, monstro, footer) {
     footer.addEventListener('click', () => verifica(player, monstro) ? monsterWins(player, monstro, footer) : vezDoPlayer(player, monstro, footer))
 }
 
+function monsterWins(player, monstro, footer) {
+    const imgMonstro = document.querySelector('.containerMonstro img')
+    imgMonstro.classList.remove('baterNoPlayer')
+
+    // Remove os EventListner
+    const body = document.querySelector('body')
+    footer.remove()
+    footer = document.createElement('footer')
+    body.appendChild(footer)
+
+    // Declarando monstro como vencedor
+    footer.innerHTML = `${monstro.nome} te derrotou, vá treinar e volte para tentar novamente!!!`
+    writer(footer)
+
+    // Retorna a vida do player ao maximo
+    player.retornaVida()
+
+    // Recebendo XP
+    footer.addEventListener('click', () => menu(player))
+}
 
 
 function vezDoPlayer(player, monstro, footer) {
@@ -236,8 +256,8 @@ function vezDoPlayer(player, monstro, footer) {
     footer.innerHTML = 'Sua vez novamente, escolha um ataque:'
     writer(footer)
     const divAtacks = document.querySelector('.golpes')
+    divAtacks.style.transform = 'translate(0, 0)'
     divAtacks.innerHTML = ''
-    divAtacks.style.display = 'block'
     player.atacks.forEach(atack => {
         const buttonAtack = document.createElement('button')
         buttonAtack.innerHTML = atack.title
@@ -248,7 +268,8 @@ function vezDoPlayer(player, monstro, footer) {
 }
 
 function getRandomPower(min, max) {
-    return Math.random() * (max - min) + min;
+    let random = Math.random()
+    return random > 0.5 ? Math.ceil(random * (max - min) + min) : Math.floor(random * (max - min) + min)
 }
 
-luta(new Warrior('Guerreiro', 'Guiry', '19'), new Slime())
+// luta(new Warrior('Guerreiro', 'Guiry', '19'), new Goblin())
