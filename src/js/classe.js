@@ -41,7 +41,7 @@ function warrior() {
     const divInfo = document.createElement('div')
     divInfo.classList.add('containerInfo')
     const warriorInfo = document.createElement('p')
-    warriorInfo.innerHTML = 'Proficiente em combates de curta distância, causa dano físico considerável e possui grande defesa.'
+    warriorInfo.innerHTML = 'Proficiente em combates de curta distância, causa dano físico considerável sendo dono de uma grande defesa.'
     warriorInfo.classList.add('info')
     divInfo.appendChild(warriorInfo)
     warrior.appendChild(warriorTitle)
@@ -99,13 +99,9 @@ function archer() {
 }
 
 function escolhaClasse(valorNome = '', valorIdade = '') {
-    const body = document.querySelector('body')
     const main = document.querySelector('main')
     let footer = document.querySelector('footer')
     main.innerHTML = ''
-    footer.remove()
-    footer = document.createElement('footer')
-    body.appendChild(footer)
     footer.innerHTML = 'Escolha a sua classe:'
     writer(footer)
     main.appendChild(mage())
@@ -135,13 +131,9 @@ function escolha(valorNome, valorIdade) {
 }
 
 function formulario(classe, valorNome, valorIdade) {
-    const body = document.querySelector('body')
     const main = document.querySelector('main')
     let footer = document.querySelector('footer')
     main.innerHTML = ''
-    footer.remove()
-    footer = document.createElement('footer')
-    body.appendChild(footer)
     footer.innerHTML = `Você escolheu ${classe}. Nos diga seu nome e idade`
     writer(footer)
     const form = document.createElement('form')
@@ -179,33 +171,26 @@ function formulario(classe, valorNome, valorIdade) {
 }
 
 function posFormulario(classe, nome, idade) {
-    const body = document.querySelector('body')
     const main = document.querySelector('main')
     let footer = document.querySelector('footer')
     main.innerHTML = ''
-    footer.remove()
-    footer = document.createElement('footer')
-    body.appendChild(footer)
     footer.innerHTML = `Você inseriu essas informações. Tem certeza?`
     writer(footer)
     const player = escolhaPlayer(classe, nome, idade)
-
-
     main.appendChild(divInfo(player))
 }
 
 function escolhaPlayer(classe, nome, idade) {
-    let player = ''
     if (classe.toLowerCase() === 'mago') {
-        player = new Mage(classe, nome, idade)
+        return new Mage(classe, nome, idade)
     } else if (classe.toLowerCase() === 'guerreiro') {
-        player = new Warrior(classe, nome, idade)
+        return new Warrior(classe, nome, idade)
     } else if (classe.toLowerCase() === 'guerreiro') {
-        player = new Assassin(classe, nome, idade)
+        return new Assassin(classe, nome, idade)
     } else {
-        player = new Archer(classe, nome, idade)
+        return new Archer(classe, nome, idade)
     }
-    return player
+
 }
 
 function divInfo(player) {

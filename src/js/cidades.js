@@ -6,10 +6,10 @@ function dungeon(player) {
     footer.remove()
     footer = document.createElement('footer')
     body.appendChild(footer)
-    footer.innerHTML = `Por favor escolha um andar para se aventurar!!`
+    footer.innerHTML = `Para qual cidade deseja ir se aventurar??`
     writer(footer)
     const div = document.createElement('div')
-    div.classList.add('containerDungeon')
+    div.classList.add('containerCidades')
     const fechar = document.createElement('button')
     fechar.classList.add('fechar')
     fechar.addEventListener('click', () => menu(player))
@@ -28,15 +28,20 @@ function dungeon(player) {
 function andar1(player) {
     const andar = document.createElement('button')
     const pAndar = document.createElement('p')
-    pAndar.innerHTML = 'Andar 1:'
+    pAndar.innerHTML = 'Cidade 1: Laguna, a aldeia das bestas encantadas:'
     andar.appendChild(pAndar)
     const monstro = document.createElement('p')
-    monstro.innerHTML = 'Monstro level 1'
+    monstro.innerHTML = 'Monstro: Slime level 1'
     andar.appendChild(monstro)
-    andar.classList.add('monstros')
+    andar.id = 'laguna'
     andar.addEventListener('click', () => {
-        const monster = new Slime()
-        luta(player, monster)
+        player.retornaVida()
+        const monstro = new Slime()
+        if (!(player.cidades.laguna)) {
+            antes(player, monstro)
+        } else {
+            luta(player, monstro)
+        }
     })
     return andar
 }
@@ -51,8 +56,9 @@ function andar2(player) {
     andar.appendChild(monstro)
     andar.classList.add('monstros')
     andar.addEventListener('click', () => {
-        const monster = new Goblin()
-        luta(player, monster)
+        player.retornaVida()
+        const monstro = new Goblin()
+        luta(player, monstro)
     })
     return andar
 }

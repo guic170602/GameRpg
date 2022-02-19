@@ -41,7 +41,7 @@ function luta(player, monstro) {
     const imgVs = document.createElement('img')
     imgVs.src = './src/img/vs.png'
     divVs.appendChild(imgVs)
-    imgVs.style.animation = 'vs 1s infinite'
+    imgVs.style.animation = 'vs 1s infinite, fadeIn 1s 1, popUp 1s'
 
     const divMonstro = document.createElement('div')
     divMonstro.classList.add('containerMonstro')
@@ -73,7 +73,7 @@ function luta(player, monstro) {
     player.atacks.forEach(atack => {
         const buttonAtack = document.createElement('button')
         buttonAtack.innerHTML = atack.title
-        addEvent(buttonAtack, footer, player, atack, monstro, divAtacks)
+        addEvent(buttonAtack, footer, player, atack, monstro)
         buttonAtack.classList.add('ataques')
         divAtacks.appendChild(buttonAtack)
     })
@@ -109,8 +109,8 @@ function addEvent(buttonAtack, footer, player, atack, monstro) {
         // Escreve no footer o dano dado no monstro
         footer.innerHTML = atack.funcao(monstro)
         writer(footer)
-
-        // Animação da vida do Monstro
+        console.log(monstro.vida)
+            // Animação da vida do Monstro
         const vidaMonstro = document.querySelector('.vidaMonstro')
         const pVidaMonstro = document.querySelector('.vidaTotalMonstro p')
         const tiraVida = setInterval(() => {
@@ -123,8 +123,8 @@ function addEvent(buttonAtack, footer, player, atack, monstro) {
             }
         }, 50)
 
+
         if (verifica(player, monstro)) {
-            const imgMonstro = document.querySelector('.containerMonstro img')
             imgMonstro.classList.add('animacaoMorrer')
         }
 
@@ -160,9 +160,6 @@ function playerWins(player, monstro, footer) {
     footer.innerHTML = `${player.nome} venceu a batalha contra o ${monstro.nome}!!!`
     writer(footer)
 
-    // Retorna a vida do player ao maximo
-    player.retornaVida()
-
     // Recebendo XP
     footer.addEventListener('click', () => recebeXp(player, monstro, footer))
 }
@@ -179,7 +176,14 @@ function recebeXp(player, monstro, footer) {
     writer(footer)
 
     // Volta para o menu
-    footer.addEventListener('click', () => menu(player))
+    footer.addEventListener('click', () => {
+        if (!(player.cidades[monstro.cidade])) {
+            player.cidades[monstro.cidade] = true
+            apos(player, monstro)
+        } else {
+            menu(player)
+        }
+    })
 }
 
 function vezDoMonstro(player, monstro, footer) {
@@ -197,7 +201,8 @@ function vezDoMonstro(player, monstro, footer) {
     let cont = player.vida
 
     // Escolhe um poder aleatório dos poderes que o monstro tem
-    const random = getRandomPower(0, monstro.powers.length - 1).toFixed(0)
+    const random = getRandomPower(0, (monstro.powers.length - 1))
+    console.log(monstro.powers[random])
     const titlePower = monstro.powers[random].title
     footer.innerHTML = monstro.powers[random].funcao(player, titlePower)
     const imgMonstro = document.querySelector('.containerMonstro img')
@@ -238,10 +243,6 @@ function monsterWins(player, monstro, footer) {
     footer.innerHTML = `${monstro.nome} te derrotou, vá treinar e volte para tentar novamente!!!`
     writer(footer)
 
-    // Retorna a vida do player ao maximo
-    player.retornaVida()
-
-    // Recebendo XP
     footer.addEventListener('click', () => menu(player))
 }
 
@@ -268,8 +269,7 @@ function vezDoPlayer(player, monstro, footer) {
 }
 
 function getRandomPower(min, max) {
-    let random = Math.random()
-    return random > 0.5 ? Math.ceil(random * (max - min) + min) : Math.floor(random * (max - min) + min)
+    return ((Math.random() * (max - min) + min).toFixed())
 }
 
-// luta(new Warrior('Guerreiro', 'Guiry', '19'), new Goblin())
+// luta(new Warrior('Guerreiro', 'Guiry', '19'), new Slime())

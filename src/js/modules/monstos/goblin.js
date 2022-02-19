@@ -5,7 +5,7 @@ class Goblin extends Monstros {
         this.nome = 'Goblin'
         this.vidaMax = 250
         this._vida = 250
-        this.defense = 18
+        this.defense = 20
         this.atack = 27
         this.exp = 200
         this.powers = [{

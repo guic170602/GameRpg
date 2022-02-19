@@ -213,7 +213,10 @@ input#sexoM {
 }
 
 .conteinerMenu {
+    animation: popUp 1s, fadeIn 1.5s;
     display: flex;
+    width: 40%;
+    min-width: 250px;
     flex-direction: column;
     align-items: center;
     background-color: var(--background-second-tranparent);
@@ -226,33 +229,42 @@ input#sexoM {
     font-size: 3rem;
 }
 
-#dungeon,
-#status,
-#reset {
+.conteinerMenu button {
     margin-bottom: 10px;
+    width: 100%;
+    padding: 17px 0;
 }
 
-#dungeon {
-    background-color: var(--background-second-white);
+#historia {
+    background-color: var(--historia);
 }
 
 #status {
-    background-color: var(--background-second);
+    background-color: var(--status);
+}
+
+#treinar {
+    background-color: var(--treinar);
 }
 
 #reset {
-    background-color: var(--background-second-black);
+    background-color: var(--voltar);
+}
+
+#creditos {
+    background-color: var(--contato);
 }
 
 .containerStatus,
-.containerDungeon {
+.containerCidades {
+    width: 40%;
+    min-width: 250px;
+    animation: popUp 1s, fadeIn 1.5s;
     padding: 20px;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
     background-color: var(--background-second-tranparent);
-    max-width: 90%;
-    min-width: 300px;
 }
 
 .fechar {
@@ -271,7 +283,7 @@ input#sexoM {
 }
 
 .containerStatus h2,
-.containerDungeon h2 {
+.containerCidades h2 {
     margin-top: -40px;
     text-align: center;
     margin-bottom: 10px;
@@ -291,16 +303,38 @@ input#sexoM {
 }
 
 .containerStatus p,
-.containerDungeon button {
+.containerCidades button {
     margin-bottom: 15px;
+}
+
+.containerCidades button p {
+    margin-bottom: 5px;
 }
 
 .containerStatus li {
     margin: 5px 10px 5px 0;
 }
 
+#laguna {
+    background-image: var(--laguna);
+}
+
 .monstros {
     background-color: var(--monstro);
+}
+
+.containerHistoria {
+    margin-top: 30px;
+    align-self: flex-start;
+    width: 70%;
+    min-width: 250px;
+    font-size: 3.2rem;
+    text-align: left;
+    animation: fadeIn 1s;
+}
+
+.containerHistoria .passar {
+    display: none;
 }
 
 .containerLuta {
@@ -347,6 +381,7 @@ input#sexoM {
 }
 
 .containerVs {
+    transform: translate(-10%, 0);
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -389,7 +424,8 @@ input#sexoM {
 
 .vidaTotalMonstro,
 .vidaTotalPlayer {
-    width: 90%;
+    width: 100%;
+    min-width: max-content;
     border: 2px inset #ffc90e;
     height: max-content;
     overflow: hidden;
@@ -404,6 +440,13 @@ input#sexoM {
 .vidaTotalMonstro p,
 .vidaTotalPlayer p {
     margin-top: -25px;
+}
+
+@media screen and (max-width: 500px) {
+    .vidaTotalMonstro p,
+    .vidaTotalPlayer p {
+        font-size: 1.2rem;
+    }
 }
 
 .vidaMonstro,

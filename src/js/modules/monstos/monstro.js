@@ -7,6 +7,8 @@ class Monstros {
     }
 
     set vida(valor) {
-        this._vida + valor >= 0 ? this._vida += valor : this._vida = 0
+        if (valor < 0) {
+            this._vida + valor >= 0 ? this._vida += valor : this._vida = 0
+        }
     }
 }

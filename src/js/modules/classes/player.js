@@ -17,6 +17,10 @@ class Player {
             title: 'Ataque Basico',
             funcao: monstroAux => this.ataqueBasico(monstroAux)
         }]
+        this.cidades = {
+            laguna: false,
+            cogu: false
+        }
     }
 
     get passar() {
@@ -52,15 +56,18 @@ class Player {
     }
 
     retornaVida() {
-        this.vida = this.vidaMax
+        this._vida = this.vidaMax
     }
 
     ataqueBasico(target) {
         let damage = this.phisAttack
         if (damage - target.defense > 0) {
             target.vida = -(damage - target.defense)
+            console.log(damage)
             damage -= target.defense
             return `${target.nome} rececebeu ${damage} de dano!!`
+        } else {
+            return 'A defesa do monstro é maior do que seu ataque'
         }
     }
 

@@ -49,6 +49,12 @@ input::-webkit-inner-spin-button {
     --background-second-black: #130b0b;
     --background-second-white: #453434;
     --background-second-tranparent: #1b0f0f52;
+    --historia: #70aea5;
+    --status: #374446;
+    --voltar: #2c8551;
+    --contato: #182327;
+    --treinar: #637244;
+    --laguna: radial-gradient(circle, #39a244, #ac6dae);
     --scroll: #1b0f0f9c;
     --monstro: #35005b;
 }
@@ -122,6 +128,15 @@ input::-webkit-inner-spin-button {
     }
 }
 
+@keyframes tomarPorrada {
+    0% {
+        transform: translate(0, 15px);
+    }
+    0% {
+        transform: translate(0, -15px);
+    }
+}
+
 @keyframes morrer {
     50% {
         transform: translate(0, -30px)
@@ -131,8 +146,14 @@ input::-webkit-inner-spin-button {
     }
 }
 
+@keyframes popUp {
+    0% {
+        transform: scale(0);
+    }
+}
+
 @media screen and (max-width: 500px) {
      :root {
-        font-size: 4px;
+        font-size: 6px;
     }
 }
