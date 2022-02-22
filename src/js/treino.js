@@ -21,11 +21,11 @@ function treinar(player) {
         monstrosCompletos.forEach(monstro => {
             const buttonMonstro = document.createElement('button')
             buttonMonstro.id = monstro.nome.toLowerCase()
-            const nome = document.createElement('p')
-            nome.innerHTML = `${monstro.nome}`
+            const fase = document.createElement('p')
+            fase.innerHTML = `${monstro.fase}`
             const cidade = document.createElement('p')
             cidade.innerHTML = monstro.cidade
-            buttonMonstro.appendChild(nome)
+            buttonMonstro.appendChild(fase)
             buttonMonstro.appendChild(cidade)
             buttonMonstro.addEventListener('click', () => luta(player, monstro.monstro))
             div.appendChild(buttonMonstro)
