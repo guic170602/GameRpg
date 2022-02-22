@@ -1,4 +1,4 @@
-function historia(player, funcao, monstro, historia, cont = 0) {
+function historia(player, funcao, monstro, historiaArray, cont = 0) {
     const main = document.querySelector('main')
     const footer = document.querySelector('footer')
     main.innerHTML = ''
@@ -11,9 +11,10 @@ function historia(player, funcao, monstro, historia, cont = 0) {
     const div = document.createElement('div')
     main.appendChild(div)
     div.classList.add('containerHistoria')
-    div.innerHTML = historia[cont]
+    div.innerHTML = historiaArray[cont]
     writer(div)
-    divFooter.addEventListener('click', () => cont < historia.length - 1 ? antes(player, funcao, monstro, historia, ++cont) : funcao(player, monstro))
+    cont += 1
+    divFooter.addEventListener('click', () => cont < historiaArray.length ? historia(player, funcao, monstro, historia, cont) : funcao(player, monstro))
 }
 
 // apos(new Warrior('Guerreiro', 'Guiry', '19'), new Slime())

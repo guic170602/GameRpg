@@ -207,7 +207,8 @@ function divInfo(player) {
     const decisao = document.createElement('div')
     sim.id = 'sim'
     nao.id = 'nao'
-    sim.addEventListener('click', () => sair(div, menu, player))
+    const historiaArray = ['No seu bolso você encontrou um bilhete que tinha escrito "É preciso passar pelos desafios para relembrar" Você olha aquele papel com atenção e sem entender se aquilo pode realmente ser verdade, mas chega na conclusão que sua única saída é se submeter aos desafios. Atrás do papel tinha um mapa, que mostrava o caminho para o seu futuro.']
+    sim.addEventListener('click', () => sair(div, historia, [player, menu, '', historiaArray]))
     nao.addEventListener('click', () => sair(div, escolhaClasse, [player.nome, player.idade]))
     decisao.appendChild(sim)
     decisao.appendChild(nao)
