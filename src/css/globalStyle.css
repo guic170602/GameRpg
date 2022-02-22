@@ -19,11 +19,14 @@ h6,
 button,
 img,
 ul,
-li {
+li,
+label {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     list-style: none;
+    cursor: default;
+    letter-spacing: 2px;
 }
 
 input::-webkit-inner-spin-button {
@@ -32,11 +35,14 @@ input::-webkit-inner-spin-button {
 }
 
 :root {
+    /*Iniciais*/
     font-size: 8px;
     font-family: 'Super Legend Boy', sans-serif;
     color: white;
     --border: 2px inset #ffc90e;
     --background-h-f: #0f1518a8;
+    --scroll: #1b0f0f9c;
+    /* Classes */
     --mage: #017579;
     --warrior: #a20000;
     --assassin: #bc19d7;
@@ -45,18 +51,31 @@ input::-webkit-inner-spin-button {
     --warriorDiv: #a2000052;
     --archerDiv: #00634352;
     --assassinDiv: #bc19d752;
+    /*Sim e não*/
+    --sim: #13cd4a;
+    --nao: #db3026;
     --background-second: #251a1a;
     --background-second-black: #130b0b;
     --background-second-white: #453434;
     --background-second-tranparent: #1b0f0f52;
-    --historia: #70aea5;
-    --status: #374446;
-    --voltar: #2c8551;
-    --contato: #182327;
-    --treinar: #637244;
+    /*Menu*/
+    --botaoMenu: #80c6c7;
+    --botaoMenuHover: #214483;
+    /*Treinar*/
     --laguna: radial-gradient(circle, #39a244, #ac6dae);
-    --scroll: #1b0f0f9c;
-    --monstro: #35005b;
+}
+
+div::selection,
+p::selection,
+label::selection,
+h1::selection,
+h2::selection,
+h3::selection,
+h4::selection,
+li::selection,
+button::selection,
+img::selection {
+    background-color: transparent;
 }
 
 @keyframes fadeIn {
@@ -65,6 +84,15 @@ input::-webkit-inner-spin-button {
     }
     100% {
         opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
     }
 }
 
@@ -129,10 +157,10 @@ input::-webkit-inner-spin-button {
 }
 
 @keyframes tomarPorrada {
-    0% {
+    25% {
         transform: translate(0, 15px);
     }
-    0% {
+    75% {
         transform: translate(0, -15px);
     }
 }
@@ -149,6 +177,30 @@ input::-webkit-inner-spin-button {
 @keyframes popUp {
     0% {
         transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes popOut {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0);
+    }
+}
+
+@keyframes rodar {
+    100% {
+        transform: rotate3d(0, 1, 0, 360deg);
+    }
+}
+
+@keyframes aumentar {
+    100% {
+        transform: scale(1.25);
     }
 }
 

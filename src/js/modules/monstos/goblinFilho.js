@@ -1,4 +1,4 @@
-class Goblin extends Monstros {
+class GoblinFilho extends Monstros {
     constructor() {
         super('./src/img/monstros/Goblin.png',
             'Goblin', 250, 250, 20, 27, 200)
@@ -40,13 +40,5 @@ class Goblin extends Monstros {
         let damage = this.atack
         target.vida = -damage
         return `${this.nome} usou ${title} e você rececebeu ${damage} de dano!!`
-    }
-}
-
-class GoblinTrain extends Goblin {
-    constructor() {
-        super('./src/img/monstros/Goblin.png',
-            'Goblin', 250, 250, 20, 27, 200)
-        this.exp = 50
     }
 }

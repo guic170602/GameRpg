@@ -1,37 +1,19 @@
-function antes(player, monstro) {
-    const body = document.querySelector('body')
+function historia(player, funcao, monstro, historia, cont = 0) {
     const main = document.querySelector('main')
-    let footer = document.querySelector('footer')
+    const footer = document.querySelector('footer')
     main.innerHTML = ''
-    footer.remove()
-    footer = document.createElement('footer')
-    body.appendChild(footer)
-    footer.innerHTML = `Presione aqui para continuar!!`
-    writer(footer)
+    footer.innerHTML = ''
+    const divFooter = document.createElement('div')
+    divFooter.classList.add('containerFooter')
+    divFooter.innerHTML = `Presione aqui para continuar!!`
+    writer(divFooter)
+    footer.appendChild(divFooter)
     const div = document.createElement('div')
     main.appendChild(div)
     div.classList.add('containerHistoria')
-    div.innerHTML = monstro.antes
+    div.innerHTML = historia[cont]
     writer(div)
-    footer.addEventListener('click', () => luta(player, monstro))
+    divFooter.addEventListener('click', () => cont < historia.length - 1 ? antes(player, funcao, monstro, historia, ++cont) : funcao(player, monstro))
 }
 
-function apos(player, monstro) {
-    const body = document.querySelector('body')
-    const main = document.querySelector('main')
-    let footer = document.querySelector('footer')
-    main.innerHTML = ''
-    footer.remove()
-    footer = document.createElement('footer')
-    body.appendChild(footer)
-    footer.innerHTML = `Presione aqui para continuar!!`
-    writer(footer)
-    const div = document.createElement('div')
-    main.appendChild(div)
-    div.classList.add('containerHistoria')
-    div.innerHTML = monstro.pos
-    writer(div)
-    footer.addEventListener('click', () => menu(player, monstro))
-}
-
-// antes(new Warrior('Guerreiro', 'Guiry', '19'), new Slime())
+// apos(new Warrior('Guerreiro', 'Guiry', '19'), new Slime())

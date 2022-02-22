@@ -24,3 +24,31 @@ function writer(footer) {
             else clearInterval(time)
     }, 75)
 }
+
+function sair(div, funcao, player) {
+    div.style.animation = 'popOut 1s forwards'
+    const animacao = setInterval(() => {
+        if (Array.isArray(player)) {
+            funcao(...player)
+        } else {
+            funcao(player)
+        }
+        clearInterval(animacao)
+    }, 1000)
+}
+
+function cliqueDeEscolha(div, funcao, player) {
+    const divInfo = document.querySelector(`.${div.classList[1]} .containerInfoClass`)
+    divInfo.classList.remove('containerInfoClass')
+    const notDiv = document.querySelectorAll(`.containerClasses> :not(.${div.classList[1]})`)
+    notDiv.forEach(divs => divs.style.display = 'none')
+    div.style.animation = 'rodar 1s, aumentar 1s forwards, fadeOut 1.2s'
+    const animacao = setInterval(() => {
+        if (Array.isArray(player)) {
+            funcao(...player)
+        } else {
+            funcao(player)
+        }
+        clearInterval(animacao)
+    }, 1100)
+}

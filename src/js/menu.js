@@ -14,24 +14,24 @@ function menu(player) {
     h2.innerHTML = 'Menu'
     div.appendChild(h2)
     const buttonDungeon = document.createElement('button')
-    buttonDungeon.innerHTML = 'Historia'
+    buttonDungeon.innerHTML = 'Modo Historia'
     buttonDungeon.id = 'historia'
-    buttonDungeon.addEventListener('click', () => dungeon(player))
+    buttonDungeon.addEventListener('click', () => sair(div, modoHitoria, player))
     div.appendChild(buttonDungeon)
     const buttonStatus = document.createElement('button')
     buttonStatus.innerHTML = 'Ver status'
     buttonStatus.id = 'status'
-    buttonStatus.addEventListener('click', () => status(player))
+    buttonStatus.addEventListener('click', () => sair(div, statusPlayer, player))
     div.appendChild(buttonStatus)
     const buttonTreinar = document.createElement('button')
     buttonTreinar.innerHTML = 'Treinar'
     buttonTreinar.id = 'treinar'
-    buttonTreinar.addEventListener('click', () => treinar(player))
+    buttonTreinar.addEventListener('click', () => sair(div, treinar, player))
     div.appendChild(buttonTreinar)
     const buttonReset = document.createElement('button')
     buttonReset.innerHTML = 'Voltar do zero'
     buttonReset.id = 'reset'
-    buttonReset.addEventListener('click', () => escolhaClasse(player.nome, player.idade))
+    buttonReset.addEventListener('click', () => sair(div, escolhaClasse, [player.nome, player.idade]))
     div.appendChild(buttonReset)
     const buttonCreditos = document.createElement('button')
     buttonCreditos.innerHTML = 'Creditos'

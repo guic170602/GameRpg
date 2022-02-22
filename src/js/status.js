@@ -1,4 +1,4 @@
-function status(player) {
+function statusPlayer(player) {
     const body = document.querySelector('body')
     const main = document.querySelector('main')
     let footer = document.querySelector('footer')
@@ -13,7 +13,7 @@ function status(player) {
     const h2 = document.createElement('h2')
     const fechar = document.createElement('button')
     fechar.classList.add('fechar')
-    fechar.addEventListener('click', () => menu(player))
+    fechar.addEventListener('click', () => sair(div, menu, player))
     div.appendChild(fechar)
     h2.innerHTML = 'Status'
     div.appendChild(h2)

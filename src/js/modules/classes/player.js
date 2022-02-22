@@ -13,14 +13,28 @@ class Player {
         this.defense = 10
         this.phisAttack = 15
         this.magicAttack = 15
-        this.atacks = [{
-            title: 'Ataque Basico',
-            funcao: monstroAux => this.ataqueBasico(monstroAux)
-        }]
-        this.cidades = {
-            laguna: false,
-            cogu: false
-        }
+        this.monstros = [{
+                nome: 'Slime',
+                fase: 'Slime, level 1',
+                cidade: 'Laguna, a aldeia das bestas encantadas',
+                completed: false,
+                monstro: new SlimeTrain()
+            },
+            {
+                nome: 'Goblin Filho',
+                fase: 'Goblin Filho, level 3',
+                cidade: 'Cogu, a cidade dos meio humanos',
+                completed: false,
+                monstro: new GoblinFilho()
+            },
+            {
+                nome: 'Goblin',
+                fase: 'Goblin, level 5',
+                cidade: 'Cogu, a cidade dos meio humanos',
+                completed: false,
+                monstro: new GoblinTrain()
+            }
+        ]
     }
 
     get passar() {

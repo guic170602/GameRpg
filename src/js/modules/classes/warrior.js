@@ -7,10 +7,17 @@ class Warrior extends Player {
         this.defense = 10
         this.phisAttack = 25
         this.magicAttack = 5
+        this.atacks = [{
+            title: 'Ataque Basico',
+            imgPower: './src/img/powers/espada.png',
+            color: '#a5a5a5',
+            funcao: monstroAux => this.ataqueBasico(monstroAux)
+        }]
     }
 
     passarNivel() {
         this.level++
+
             if (this.level == 2) {
                 this.vidaMax += 60
                 this._mana += 15
@@ -26,10 +33,6 @@ class Warrior extends Player {
             this.phisAttack += 5
             this.magicAttack += 5
             this.passar += 100
-            this.atacks.push({
-                title: 'Lança Giratoria',
-                funcao: monstroAux => this.lancaGiratorio(monstroAux)
-            })
         }
         this.exp = 0
     }

@@ -1,3 +1,5 @@
+/*Iniciais*/
+
 html {
     width: 100%;
     height: 100%;
@@ -62,11 +64,89 @@ main::-webkit-scrollbar-thumb:hover {
     background-color: var(--azul-escuro);
 }
 
+footer {
+    border: var(--border);
+    width: 90vw;
+    height: 100px;
+    margin-top: 50px;
+    align-self: center;
+    background-color: var(--background-h-f);
+    display: flex;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 2rem;
+    text-align: center;
+}
+
+button,
+.enviar {
+    font-size: 2rem;
+    padding: 15px;
+    opacity: 1;
+    border-radius: 10px;
+    border: none;
+    font-family: 'Super Legend Boy', sans-serif;
+    color: white;
+    cursor: pointer;
+}
+
+button p,
+.enviar p,
+button img,
+.enviar img {
+    cursor: pointer;
+}
+
+
+/*Iniciais*/
+
+
+/* Tela inicial */
+
+.containerPrincipal {
+    margin-top: -20px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.imgPrincipal {
+    width: 60%;
+}
+
+.newGame {
+    width: 200px;
+    border-radius: 20px;
+    transition: .5s;
+}
+
+.newGame:hover {
+    transform: scale(1.20);
+}
+
+
+/*Escolha de classes*/
+
+.containerClasses {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    transition: 1s;
+}
+
 .class {
     padding: 10px;
     margin: 10px 10px;
     border-radius: 20px;
     display: flex;
+    position: relative;
     flex-direction: column;
     justify-content: space-between;
     min-height: 206px;
@@ -75,6 +155,7 @@ main::-webkit-scrollbar-thumb:hover {
 
 .mageDiv {
     background-color: var(--mageDiv);
+    transition: 1s;
 }
 
 .warriorDiv {
@@ -96,17 +177,17 @@ main::-webkit-scrollbar-thumb:hover {
 }
 
 .imgClass {
-    width: 90px;
+    height: 90px;
     margin: 0 auto 15px;
 }
 
-.containerInfo {
+.containerInfoClass {
     max-height: 0;
     transition: max-height 0.15s ease-out;
     overflow: hidden;
 }
 
-.class:hover .containerInfo {
+.class:hover .containerInfoClass {
     max-height: 1000px;
     transition: max-height 0.25s ease-in;
 }
@@ -115,18 +196,6 @@ main::-webkit-scrollbar-thumb:hover {
     font-size: 1.5rem;
     margin-bottom: 10px;
     text-align: center;
-}
-
-button,
-.enviar {
-    font-size: 2rem;
-    padding: 15px;
-    opacity: 1;
-    border-radius: 10px;
-    border: none;
-    font-family: 'Super Legend Boy', sans-serif;
-    color: white;
-    cursor: pointer;
 }
 
 .buttonMage {
@@ -145,7 +214,14 @@ button,
     background-color: var(--archer);
 }
 
+
+/*Escolha de Classes*/
+
+
+/*Formulario*/
+
 form {
+    animation: fadeIn 1s, popUp 1s;
     width: max-content;
     max-width: 85%;
     background-color: var(--background-second-tranparent);
@@ -171,20 +247,20 @@ input#name {
     font-family: 'Super Legend Boy', sans-serif;
 }
 
-input#sexoF,
-input#sexoM {
-    margin: 0 10px;
-    width: 15px;
-    height: 15px;
-}
-
 .enviar {
     padding: 20px;
     margin: 20px 0 0;
     background-color: var(--background-second)
 }
 
-.confirmar {
+
+/* Formulario */
+
+
+/*Confirmação de escolha*/
+
+.containerConfirmacao {
+    animation: popUp 1s, fadeIn 1s;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -193,24 +269,49 @@ input#sexoM {
     border-radius: 20px;
 }
 
-.confirmar .informacoes {
+.containerConfirmacao .informacoes {
     font-size: 2.5rem;
     margin-bottom: 20px;
     align-self: flex-start;
 }
 
-.confirmar div {
-    display: flex;
+.containerConfirmacao div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-around;
-    width: 50%;
+    justify-content: center;
+    width: 100%;
 }
 
-.decisao {
-    background-color: var(--background-second);
-    margin: 7.5px 0;
+.containerConfirmacao div button {
+    width: 80%;
+    margin: 0 auto;
 }
+
+#sim {
+    background-color: var(--sim);
+}
+
+#nao {
+    background-color: var(--nao);
+}
+
+.containerConfirmacao button {
+    margin: 7.5px 0;
+    transition: 0.2s;
+    background-size: 0;
+}
+
+.containerConfirmacao button {
+    background-size: 100%;
+}
+
+
+/*Confirmação de Escolha*/
+
+
+/* Menu */
 
 .conteinerMenu {
     animation: popUp 1s, fadeIn 1.5s;
@@ -233,30 +334,27 @@ input#sexoM {
     margin-bottom: 10px;
     width: 100%;
     padding: 17px 0;
+    background-color: var(--botaoMenu);
+    transition: .2s;
 }
 
-#historia {
-    background-color: var(--historia);
+.conteinerMenu button:hover {
+    background-color: var(--botaoMenuHover);
+    transform: scale(1.04);
 }
 
-#status {
-    background-color: var(--status);
+.conteinerMenu button:active {
+    transform: scale(0.94);
 }
 
-#treinar {
-    background-color: var(--treinar);
-}
 
-#reset {
-    background-color: var(--voltar);
-}
+/* Menu */
 
-#creditos {
-    background-color: var(--contato);
-}
+
+/*Status e Treino*/
 
 .containerStatus,
-.containerCidades {
+.containerTreino {
     width: 40%;
     min-width: 250px;
     animation: popUp 1s, fadeIn 1.5s;
@@ -283,13 +381,19 @@ input#sexoM {
 }
 
 .containerStatus h2,
-.containerCidades h2 {
+.containerTreino h2 {
     margin-top: -40px;
     text-align: center;
     margin-bottom: 10px;
     width: max-content;
     align-self: center;
     font-size: 3rem;
+}
+
+.containerTreino h3 {
+    text-align: center;
+    align-self: center;
+    font-size: 2.5rem;
 }
 
 .containerStatus p,
@@ -303,11 +407,11 @@ input#sexoM {
 }
 
 .containerStatus p,
-.containerCidades button {
+.containerTreino button {
     margin-bottom: 15px;
 }
 
-.containerCidades button p {
+.containerTreino button p {
     margin-bottom: 5px;
 }
 
@@ -315,16 +419,17 @@ input#sexoM {
     margin: 5px 10px 5px 0;
 }
 
-#laguna {
+#slime {
     background-image: var(--laguna);
 }
 
-.monstros {
-    background-color: var(--monstro);
-}
+
+/* Status e Treino */
+
+
+/* Historia */
 
 .containerHistoria {
-    margin-top: 30px;
     align-self: flex-start;
     width: 70%;
     min-width: 250px;
@@ -337,6 +442,12 @@ input#sexoM {
     display: none;
 }
 
+
+/* Historia */
+
+
+/* Luta */
+
 .containerLuta {
     height: max-content;
     display: flex;
@@ -344,11 +455,6 @@ input#sexoM {
     min-height: 100%;
     justify-content: center;
     flex-direction: column;
-}
-
-.ataques {
-    background-color: var(--background-second-black);
-    margin-right: 15px;
 }
 
 .divLuta {
@@ -374,10 +480,12 @@ input#sexoM {
     justify-content: center;
     align-items: center;
     font-size: 3rem;
+    align-self: flex-end;
 }
 
 .containerPlayer img {
     width: 50%;
+    max-height: 150;
 }
 
 .containerVs {
@@ -391,6 +499,7 @@ input#sexoM {
 
 .containerVs img {
     width: 80%;
+    animation: vs 1s infinite, fadeIn 1s, popUp 1s;
 }
 
 .containerMonstro {
@@ -403,6 +512,7 @@ input#sexoM {
 
 .containerMonstro img {
     width: 50%;
+    max-height: 150;
 }
 
 .containerPlayer>p,
@@ -422,6 +532,10 @@ input#sexoM {
     animation: morrer 2s 1 0.6s forwards;
 }
 
+.tomarPorrada {
+    animation: tomarPorrada 1s 1;
+}
+
 .vidaTotalMonstro,
 .vidaTotalPlayer {
     width: 100%;
@@ -435,11 +549,13 @@ input#sexoM {
     display: flex;
     flex-direction: column;
     text-align: center;
+    z-index: 1;
 }
 
 .vidaTotalMonstro p,
 .vidaTotalPlayer p {
     margin-top: -25px;
+    z-index: 1;
 }
 
 @media screen and (max-width: 500px) {
@@ -457,24 +573,42 @@ input#sexoM {
 }
 
 .golpes {
+    display: flex;
     transition: 1s;
 }
 
-footer {
-    border: var(--border);
-    width: 90vw;
-    height: 100px;
-    margin-top: 50px;
-    align-self: center;
-    background-color: var(--background-h-f);
+.ataques {
+    margin-right: 15px;
+    padding: 10px;
     display: flex;
-    border-radius: 10px;
-    backdrop-filter: blur(10px);
+    align-items: center;
+}
+
+.golpes p {
+    margin-right: 15px;
+}
+
+.containerTurno {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    font-size: 2rem;
+    transform: translate(-60%, 15px);
+}
+
+
+/* Luta */
+
+
+/* Footer */
+
+.containerFooter {
+    width: 100%;
+    height: 100%;
+    display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    font-size: 2rem;
-    text-align: center;
 }
 
 .passar {
@@ -484,3 +618,6 @@ footer {
     margin-right: 20px;
     animation: vaiEvolta 1s infinite;
 }
+
+
+/* Footer */
