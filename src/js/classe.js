@@ -115,7 +115,6 @@ function escolhaClasse(valorNome = '', valorIdade = '') {
     div.appendChild(assassin(valorNome, valorIdade))
     div.appendChild(archer(valorNome, valorIdade))
     main.appendChild(div)
-    audio()
 }
 
 function formulario(classe, valorNome, valorIdade) {
