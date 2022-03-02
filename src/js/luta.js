@@ -121,20 +121,23 @@ function addEvent(buttonAtack, player, atack, monstro, turno) {
         divFooter.innerHTML = atack.funcao(monstro)
         writer(divFooter)
 
-        verifica(player, monstro) ? imgMonstro.classList.add('animacaoMorrer') : imgMonstro.classList.add('tomarPorrada')
+        // Animação do Monstro
+        const animaDepoisDaPorrada = setInterval(() => {
+            verifica(player, monstro) ? imgMonstro.classList.add('animacaoMorrer') : imgMonstro.classList.add('tomarPorrada')
+            const vidaMonstro = document.querySelector('.vidaMonstro')
+            const pVidaMonstro = document.querySelector('.vidaTotalMonstro p')
+            const tiraVida = setInterval(() => {
+                vidaMonstro.style.width = `${cont/monstro.vidaMax * 100}%`
+                pVidaMonstro.innerHTML = `${cont}/${monstro.vidaMax}`
+                if (cont <= monstro.vida) {
+                    clearInterval(tiraVida)
+                } else {
+                    cont--
+                }
+            }, 50)
+            clearInterval(animaDepoisDaPorrada)
+        }, 500)
 
-        // Animação da vida do Monstro
-        const vidaMonstro = document.querySelector('.vidaMonstro')
-        const pVidaMonstro = document.querySelector('.vidaTotalMonstro p')
-        const tiraVida = setInterval(() => {
-            vidaMonstro.style.width = `${cont/monstro.vidaMax * 100}%`
-            pVidaMonstro.innerHTML = `${cont}/${monstro.vidaMax}`
-            if (cont <= monstro.vida) {
-                clearInterval(tiraVida)
-            } else {
-                cont--
-            }
-        }, 50)
 
         // Proxima ação
         divFooter.addEventListener('click', () => verifica(player, monstro) ? playerWins(player, monstro) : vezDoMonstro(player, monstro, turno))
@@ -206,15 +209,19 @@ function vezDoMonstro(player, monstro, turno) {
     imgMonstro.classList.remove('tomarPorrada')
     imgMonstro.classList.add('baterNoPlayer')
 
-    verifica(player, monstro) ? imgPlayer.classList.add('animacaoMorrer') : imgPlayer.classList.add('tomarPorrada')
 
-    const vidaPlayer = document.querySelector('.vidaPlayer')
-    const pVidaPlayer = document.querySelector('.vidaTotalPlayer p')
-    const tiraVida = setInterval(() => {
-        vidaPlayer.style.width = `${cont/player.vidaMax * 100}%`
-        pVidaPlayer.innerHTML = `${Math.ceil(cont)}/${player.vidaMax}`
-        cont <= player.vida ? clearInterval(tiraVida) : cont--
-    }, 50)
+    const animaDepoisDaPorrada = setInterval(() => {
+        verifica(player, monstro) ? imgPlayer.classList.add('animacaoMorrer') : imgPlayer.classList.add('tomarPorrada')
+        const vidaPlayer = document.querySelector('.vidaPlayer')
+        const pVidaPlayer = document.querySelector('.vidaTotalPlayer p')
+        const tiraVida = setInterval(() => {
+            vidaPlayer.style.width = `${cont/player.vidaMax * 100}%`
+            pVidaPlayer.innerHTML = `${Math.ceil(cont)}/${player.vidaMax}`
+            cont <= player.vida ? clearInterval(tiraVida) : cont--
+        }, 50)
+        clearInterval(animaDepoisDaPorrada)
+    }, 500)
+
 
 
     divFooter.addEventListener('click', () => verifica(player, monstro) ? monsterWins(player, monstro) : vezDoPlayer(player, monstro, turno))

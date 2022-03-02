@@ -14,7 +14,8 @@ function historia(player, funcao, monstro, historiaArray, cont = 0) {
     div.innerHTML = historiaArray[cont]
     writer(div)
     cont += 1
-    divFooter.addEventListener('click', () => cont < historiaArray.length ? historia(player, funcao, monstro, historia, cont) : funcao(player, monstro))
+    console.log(cont, historiaArray, cont < historiaArray.length)
+    divFooter.addEventListener('click', () => cont < historiaArray.length ? historia(player, funcao, monstro, historiaArray, cont) : funcao(player, monstro))
 }
 
 // apos(new Warrior('Guerreiro', 'Guiry', '19'), new Slime())
